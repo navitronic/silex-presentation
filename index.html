@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Silex</title>
+	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,900|Source+Code+Pro&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="css/main.css"/>
+	<link rel="stylesheet" href="css/prism.css"/>
+</head>
+<body>
+<article id="presentation">
+	<section class="centered">
+		<h1>Silex</h1>
+		<img src="images/silex.png" alt=""/>
+		<h2><br/>a low fat alternative</h2>
+	</section>
+	<section class="image-slide">
+		<h2 class="image-title">Like all good presentations...</h2>
+	</section>
+	<section class="image-slide" style="background-image: url(images/giphy.gif);">
+		<h2 class="image-title">There are gifs.</h2>
+	</section>
+	<section>
+		<h2>The inevitable self promotion...</h2>
+		<table>
+			<tr>
+				<td class="centered" style="width: 33%;"><img src="images/photo.png" alt="" class="rounded" width="150"/></td>
+				<td style="width: 67%;">
+					<ul>
+						<li>Web developer here at Flint.</li>
+						<li>Working mainly with PHP, and some frontend.</li>
+						<li>Been working with Symfony for a little under 2 years (v2.0+)</li>
+						<li><br/>Follow me on twitter: <a href="http://twitter.com/navitronic">@navitronic</a><br/>Slides are available here: <a href="http://navitronic.co/slides/silex">http://navitronic.co/slides/silex</a></li>
+					</ul>
+				</td>
+			</tr>
+		</table>
+	</section>
+	<section>
+		<h2>So, Silex?</h2>
+		<ul>
+			<li></li>
+			<li>A PHP 5.3+ micro framework</li>
+			<li>Built using some components of Symfony</li>
+			<li>Uses Pimple for dependency injection.</li>
+			<li>Inspired by the Ruby framework Sinatra</li>
+			<li><br/></li>
+			<li>Created by Fabien Potencier, along with Igor Wiedler</li>
+			<li>Backed by Sensio, the company behind Symfony</li>
+			<li>MIT Licensed</li>
+			<li><span class="aside">(Is that neckbeard approved or not? I forget...)</span></li>
+		</ul>
+	</section>
+	<section>
+		<h2>A micro what?</h2>
+		<ul>
+			<li></li>
+			<li>But? but? Bigger is better right?</li>
+			<li><br/>Wrong!</li>
+			<li><br/>According to its website, <br/>Silex is Concise, Extensible, Testable</li>
+		</ul>
+	</section>
+	<section class="centered">
+		<h2>Everything you need for building this:</h2>
+		<img src="images/Hot-Rod-Art-Car-art-1.jpg" alt="" width="540"/>
+	</section>
+	<section class="centered">
+		<h2>Also, this:</h2>
+		<img src="images/TheHomer.jpg" alt="" width="540"/>
+	</section>
+	<section>
+		<h2>So, PHP 5.3?</h2>
+		<ul>
+			<li></li>
+			<li>TLDR; it's modern, it's good</li>
+			<li>installable via composer</li>
+			<li><br/>If you're not using at least PHP 5.3
+			<li>If you're not using composer...</li>
+			<li class="aside">If Sam has done his housekeeping...</li>
+			<li><br/>you know where the door is.</li>
+		</ul>
+	</section>
+	<section>
+		<h2>So, Symfony components?</h2>
+		<ul>
+			<li></li>
+			<li>At its heart, Silex uses 4 main Symfony components...</li>
+			<li>
+				<br/><strong>HttpFoundation</strong>: For Request and Response.
+			</li>
+			<li>
+				<strong>HttpKernel</strong>: Because we need a heart.
+			</li>
+			<li>
+				<strong>Routing</strong>: For matching defined routes.
+			</li>
+			<li>
+				<strong>EventDispatcher</strong>: For hooking into the HttpKernel.
+			</li>
+			<li>
+				<br/>Silex can also leverage many more using service providers<br/>
+				<span class="aside">
+					Twig, Form, Security, Swiftmailer, Monolog, Doctrine etc
+				</span>
+			</li>
+		</ul>
+	</section>
+	<section>
+		<h2>So, Pimple?</h2>
+		<ul>
+			<li></li>
+			<li>A simple dependency injection container</li>
+			<li>Again, PHP 5.3+</li>
+			<li>Super simple, single class</li>
+			<li><br/>Silex extends Pimple</li>
+		</ul>
+	</section>
+	<section>
+		<h2>Good, huh?</h2>
+		<p>So why is it good?</p>
+		<ul>
+			<li></li>
+			<li></li>
+		</ul>
+	</section>
+	<section class="image-slide" style="background-image: url(images/lionel-richie-hello-o.gif);">
+		<h2 class="image-title">First up, a standard example...</h2>
+	</section>
+	<section>
+		<h2>Silex, Hello World</h2>
+		<p>Silex is installable via composer.</p>
+		<p></p>
+		<code class="language-javascript">
+// composer.json
+{
+	"require": {
+		"silex/silex": "~1.1"
+	}
+}
+		</code>
+	</section>
+	<section>
+		<h2>Silex, Hello World</h2>
+		<p>After installation, the simplest example is:</p>
+		<code class="language-php">// index.php
+require_once __DIR__.'/../vendor/autoload.php';
+
+$app = new Silex\Application();
+
+$app->get('/hello/{name}', function($name) use($app) {
+	return 'Hello '.$app->escape($name);
+});
+
+$app->run();</code>
+	</section>
+	<section class="image-slide" style="background-image: url(images/36243-slow-clap-citizen-kane-orson-w-bJkI.gif);">
+		<h2 class="image-title">So what?</h2>
+	</section>
+	<section>
+		<h2>Where does the power come from?</h2>
+		<ul>
+			<li></li>
+			<li>The dependency injection container</li>
+			<li>and by extension of that, service providers</li>
+			<li>
+				<br/>
+				Service providers provide clean, abstracted ways to get access to things like:
+			</li>
+			<li><br>The database</li>
+			<li>Your mailer</li>
+			<li>Templating engine</li>
+			<li>etc</li>
+		</ul>
+	</section>
+	<section>
+		<h2>An example</h2>
+		<code class="language-php">require_once __DIR__.'/../vendor/autoload.php';
+
+$app = new Silex\Application();
+
+$app->register(new Silex\Provider\DoctrineServiceProvider(), array(
+    'db.options' => array(
+        'driver'   => 'pdo_sqlite',
+        'path'     => __DIR__.'/app.db',
+    ),
+));</code>
+	</section>
+	<section>
+		<h2>An example, cont'd</h2>
+		<code class="language-php">$app->get('/blog/{id}', function ($id) use ($app) {
+    $sql = "SELECT * FROM posts WHERE id = ?";
+    $post = $app['db']->fetchAssoc($sql, array((int) $id));
+
+    return  "<h1>{$post['title']}</h1>".
+            "<p>{$post['body']}</p>";
+});</code>
+	</section>
+	<section>
+		<h2>Twig</h2>
+		<code class="language-php">$app->register(new Silex\Provider\TwigServiceProvider(), array(
+    'twig.path' => __DIR__.'/views',
+));
+
+$app->get('/hello/{name}', function ($name) use ($app) {
+    return $app['twig']->render('hello.twig', array(
+        'name' => $name,
+    ));
+});
+</code>
+	</section>
+	<section class="image-slide" style="background-image: url(images/shut-up-o.gif);">
+		<h2 class="image-title">So I could go on...</h2>
+	</section>
+	<section>
+		<h2>But, I won't</h2>
+		<ul>
+			<li></li>
+			<li><br/>Silex is great if:</li>
+			<li>You want something lean</li>
+			<li>You're happy to make your own architecture decisions</li>
+			<li><br/></li>
+			<li>Really, it's just an option, like anything else.</li>
+		</ul>
+	</section>
+	<section>
+		<h2>No really, I won't</h2>
+		<p>So if you wanna check out silex:</p>
+		<p><a href="http://silex.sensiolag.orgs">http://silex.sensiolag.orgs</a></p>
+		<p><br/>A great place to get started:<p>
+		<code class="language-clike">composer create-project fabpot/silex-skeleton silex</code>
+		<p><br/><a href="https://github.com/silexphp/Silex-Skeleton">https://github.com/silexphp/Silex-Skeleton</a></p>
+	</section>
+	<section class="image-slide">
+		<h2 class="image-title">Questions?</h2>
+	</section>
+</article>
+
+<script type="text/javascript" src="js/prism.js"></script>
+<script type="text/javascript" src="js/bespoke.min.js"></script>
+<script type="text/javascript" src="js/bespoke-scale.min.js"></script>
+<script type="text/javascript" src="js/bespoke-bullets.min.js"></script>
+<script type="text/javascript" src="js/bespoke-hash.min.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>
